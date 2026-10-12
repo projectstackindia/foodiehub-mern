@@ -1,0 +1,20 @@
+{
+  "name": "foodiehub",
+  "version": "1.0.0",
+  "description": "MERN Stack Food Ordering Website",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd Frontend && npm install && cd ../Backend && npm install",
+    "dev": "concurrently \"npm run Backend\" \"npm run Frontend\"",
+    "Frontend": "cd Frontend && npm run dev",
+    "Backend": "cd Backend && npm run dev",
+    "build": "cd Frontend && npm run build",
+    "start": "cd Backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

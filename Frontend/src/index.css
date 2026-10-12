@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* =============================================================
+   1. GLOBAL RESET & TERMINATOR: Kill Gray/White Bleed
+   ============================================================= 
+*/
+:root {
+  background-color: #000000 !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@layer base {
+  /* 2. INPUT MATRIX: Mandatory Dark Styling
+  */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    background-color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.2em !important;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  input:focus {
+    border-color: #10b981 !important; /* Emerald Focus */
+    background-color: #000000 !important;
+    outline: none !important;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15) !important;
+  }
+
+ 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+    /* Box shadow se background color ko force-cover kiya */
+    -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+    box-shadow: 0 0 0px 1000px #000000 inset !important;
+    /* Transition delay taaki browser blink na kar sake */
+    transition: background-color 5000s ease-in-out 0s;
+    font-weight: 900 !important;
+  }
+}
+
+/* 4. SCROLLBAR MATRIX: Keep it Deep Dark
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* 5. SELECTION CORE: Emerald Glow
+*/
+::selection {
+  background-color: #10b981;
+  color: #000000;
+}
+
+/* 6. UTILITY CLASSES (Matching Navbar/Buttons Layout)
+*/
+@layer components {
+  .container-custom {
+    @apply w-full px-4 md:px-10 mx-auto;
+  }
+  
+  /* Glass Effect for specific cards if needed */
+  .glass-dark {
+    @apply bg-black/60 backdrop-blur-2xl border border-white/5;
+  }
+}
